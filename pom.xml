@@ -3,7 +3,7 @@
 
     <groupId>net.daboross.bukkitdev</groupId>
     <artifactId>simply-cool</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>SimplyCool</name>
@@ -84,7 +84,7 @@
                             <goal>gitdescribe</goal>
                         </goals>
                         <configuration>
-                            <descriptionProperty>project.describe-version</descriptionProperty>
+                            <descriptionProperty>project.describeversion</descriptionProperty>
                             <outputPrefix>${project.version}-</outputPrefix>
                         </configuration>
                     </execution>
