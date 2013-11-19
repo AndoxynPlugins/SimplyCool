@@ -1,0 +1,16 @@
+### SimplyCool config.yml ###
+# SimplyCool created by Dabo Ross
+# www.daboross.net
+# daboross@daboross.net
+###
+
+# This is the cooldown in seconds
+cooldown: 30
+
+# This defines any equivalent commands.
+# Aliases using bukkit's system are automatically detected,
+# and do not need to be added here.
+
+equiv-commands:
+#  command1: command2 
+## That line right there is a commented out value to map 'command1' to 'command2'

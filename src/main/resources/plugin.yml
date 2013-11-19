@@ -1,0 +1,5 @@
+name: ${project.name}
+main: net.daboross.bukkitdev.simplycool.SimplyCool
+version: ${project.describe-version}
+author: Dabo Ross
+description: ${project.description}
