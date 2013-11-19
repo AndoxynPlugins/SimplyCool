@@ -1,5 +1,5 @@
 name: ${project.name}
-main: net.daboross.bukkitdev.simplycool.SimplyCool
+main: net.daboross.bukkitdev.simplycool.SimplyCoolPlugin
 version: ${project.describe-version}
 author: Dabo Ross
 description: ${project.description}
