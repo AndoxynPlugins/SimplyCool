@@ -57,16 +57,17 @@ public class SimplyCoolPlugin extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onCommand(PlayerCommandPreprocessEvent evt) {
-        final String command = getTreatedCommand(evt.getMessage());
-        if (cooldowns.containsKey(command)) {
-            evt.getPlayer().sendMessage(String.format(FORMAT, relativeFormat(cooldown - System.currentTimeMillis()), command));
+        String command = getTreatedCommand(evt.getMessage());
+        final String cooldownName = evt.getPlayer().getName().toLowerCase() + "|" + command;
+        if (cooldowns.containsKey(cooldownName)) {
+            evt.getPlayer().sendMessage(String.format(FORMAT, relativeFormat(cooldowns.get(cooldownName) - System.currentTimeMillis()), command));
             evt.setCancelled(true);
         } else {
-            cooldowns.put(command, System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(cooldown));
+            cooldowns.put(cooldownName, System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(cooldown));
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    cooldowns.remove(command);
+                    cooldowns.remove(cooldownName);
                 }
             }.runTaskLater(this, cooldown * 20);
         }
@@ -84,9 +85,7 @@ public class SimplyCoolPlugin extends JavaPlugin implements Listener {
     }
 
     public static String relativeFormat(long millis) {
-        if (millis < 0) {
-            throw new IllegalArgumentException("millis < 0");
-        } else if (millis == 0) {
+        if (millis <= 0) {
             return "Not that long";
         }
         long years, days, hours, minutes, seconds;
